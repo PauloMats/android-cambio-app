@@ -1,15 +1,13 @@
 package com.betrybe.currencyview.data.api
 
 import com.betrybe.currencyview.data.models.CurrencySymbolResponse
-import com.betrybe.currencyview.data.models.CurrencyRateResponse
+import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Headers
 
-// Interface para a API do Retrofit
 interface ApiService {
-    @GET("/exchangerates_data/symbols")
-    suspend fun getSymbols(): CurrencySymbolResponse
 
-    @GET("/exchangerates_data/latest ")
-    suspend fun getLatest(): CurrencyRateResponse
-
+    @Headers("apiKey:20EyGYInJopKHhX7HzFTsiWv41CbMtdF")
+    @GET("symbols")
+    suspend fun getSymbol(): Response<CurrencySymbolResponse>
 }
